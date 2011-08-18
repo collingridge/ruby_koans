@@ -6,7 +6,7 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 # below).  You should be able to initialize the proxy object with any
 # object.  Any messages sent to the proxy object should be forwarded
 # to the target object.  As each message is sent, the proxy should
-# record the name of the method sent.
+# record the name of the method send.
 #
 # The proxy class is started for you.  You will need to add a method
 # missing handler and any other supporting methods.  The specification
@@ -33,8 +33,7 @@ class AboutProxyObjectProject < EdgeCase::Koan
   
   def test_tv_methods_still_perform_their_function
     tv = Proxy.new(Television.new)
-
-    # HINT Proxy class is defined above, may need tweaking...
+    
     tv.channel = 10
     tv.power
     

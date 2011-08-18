@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 class AboutIteration < EdgeCase::Koan
 
   def test_each_is_a_method_on_arrays
-    assert_equal __, [].methods.include?(:each)
+    [].methods.include?("each")
   end
 
   def test_iterating_with_each
@@ -65,7 +65,7 @@ class AboutIteration < EdgeCase::Koan
     result = [2, 3, 4].inject(0) { |sum, item| sum + item }
     assert_equal __, result
 
-    result2 = [2, 3, 4].inject(1) { |product, item| product * item }
+    result2 = [2, 3, 4].inject(1) { |sum, item| sum * item }
     assert_equal __, result2
 
     # Extra Credit:
