@@ -15,6 +15,22 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  sides = [a, b, c] 
+  sides.each {|side| raise TriangleError if side <=0 }    
+
+ 
+  #will be scalene if no sides match
+  type = :scalene
+ 
+  matching = 0 
+  matching += 1 if a == b
+  matching += 1 if b == c
+  matching += 1 if a == c
+  
+  type = :isosceles if matching == 1
+  type = :equilateral if matching == 3
+
+  type
 end
 
 # Error class used in part 2.  No need to change this code.
