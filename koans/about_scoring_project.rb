@@ -31,6 +31,45 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 
 def score(dice)
   # You need to write this method
+  result = 0
+
+  counts = {}
+  dice.each do |face|
+    if counts[face].nil?
+      counts[face] = 1
+    else
+      counts[face] += 1
+    end
+  end
+
+  counts.map do | face, count |
+    if count >= 3 
+      if face == 1
+        result += 1000
+      else
+        result += face * 100
+      end
+      # reduce the total in case they are 1s or 5s
+      # and so need more work...
+      count += -3
+    end
+    
+    if face == 5
+      result += 50 * count
+    end
+
+    if face == 1
+      result += 100 * count
+    end
+
+  end
+
+
+
+  puts counts.inspect
+  counts.sort_by { |key, value| value }
+  puts counts.inspect
+  result
 end
 
 class AboutScoringProject < EdgeCase::Koan
