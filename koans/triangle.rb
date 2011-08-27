@@ -13,12 +13,20 @@
 # and
 #   about_triangle_project_2.rb
 #
+def validate_triangle(sides)
+  sides.each {|side| raise TriangleError if side <=0 }    
+  sides.sort!
+  longest = sides.pop
+  others = sides.pop + sides.pop
+  puts "longest: #{longest} others: #{others}"
+  raise TriangleError if others <= longest
+end
+
 def triangle(a, b, c)
   # WRITE THIS CODE
   sides = [a, b, c] 
-  sides.each {|side| raise TriangleError if side <=0 }    
 
- 
+  validate_triangle(sides)
   #will be scalene if no sides match
   type = :scalene
  
