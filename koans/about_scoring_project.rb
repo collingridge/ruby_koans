@@ -64,11 +64,7 @@ def score(dice)
 
   end
 
-
-
-  puts counts.inspect
   counts.sort_by { |key, value| value }
-  puts counts.inspect
   result
 end
 

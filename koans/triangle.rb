@@ -13,12 +13,12 @@
 # and
 #   about_triangle_project_2.rb
 #
+
 def validate_triangle(sides)
   sides.each {|side| raise TriangleError if side <=0 }    
   sides.sort!
   longest = sides.pop
   others = sides.pop + sides.pop
-  puts "longest: #{longest} others: #{others}"
   raise TriangleError if others <= longest
 end
 
