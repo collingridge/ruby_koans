@@ -31,32 +31,40 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 
 def score(dice)
   # You need to write this method
-  result = 0 
+  result = 0
 
   counts = {}
-  dice.inject(counts) do |counts, die|
-   if counts[die].nil? 
-    counts[die] = 1
-   else
-     counts[die] +=1
-   end
+  dice.each do |face|
+    if counts[face].nil?
+      counts[face] = 1
+    else
+      counts[face] += 1
+    end
   end
 
-  counts.find do | key, value | 
-    value >= 3
-  end
+  counts.map do | face, count |
+    if count >= 3 
+      if face == 1
+        result += 1000
+      else
+        result += face * 100
+      end
+      # reduce the total in case they are 1s or 5s
+      # and so need more work...
+      count += -3
+    end
     
-  counts.each do | key, value |
-    if value = 3
-      # do 3s
+    if face == 5
+      result += 50 * count
     end
 
-    if value > 3
-      # do 3s
-      # do remainder
-    end if
+    if face == 1
+      result += 100 * count
+    end
 
   end
+
+  counts.sort_by { |key, value| value }
 
   result
 end
