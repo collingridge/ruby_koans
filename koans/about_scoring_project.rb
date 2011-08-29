@@ -31,6 +31,34 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 
 def score(dice)
   # You need to write this method
+  result = 0 
+
+  counts = {}
+  dice.inject(counts) do |counts, die|
+   if counts[die].nil? 
+    counts[die] = 1
+   else
+     counts[die] +=1
+   end
+  end
+
+  counts.find do | key, value | 
+    value >= 3
+  end
+    
+  counts.each do | key, value |
+    if value = 3
+      # do 3s
+    end
+
+    if value > 3
+      # do 3s
+      # do remainder
+    end if
+
+  end
+
+  result
 end
 
 class AboutScoringProject < EdgeCase::Koan
