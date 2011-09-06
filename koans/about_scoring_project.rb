@@ -65,6 +65,7 @@ def score(dice)
   end
 
   counts.sort_by { |key, value| value }
+
   result
 end
 

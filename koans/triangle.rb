@@ -14,6 +14,8 @@
 #   about_triangle_project_2.rb
 #
 
+
+# Check longest side is not longer than combined length of other sides (not a triangle!)
 def validate_triangle(sides)
   sides.each {|side| raise TriangleError if side <=0 }    
   sides.sort!
@@ -25,8 +27,8 @@ end
 def triangle(a, b, c)
   # WRITE THIS CODE
   sides = [a, b, c] 
-
   validate_triangle(sides)
+  
   #will be scalene if no sides match
   type = :scalene
  

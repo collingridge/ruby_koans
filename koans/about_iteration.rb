@@ -70,6 +70,7 @@ class AboutIteration < EdgeCase::Koan
 
     # Extra Credit:
     # Describe in your own words what inject does.
+    # Begin with 'sum', then iterate collection and perform the block on 'sum' and each item in the collection. Sum is retained for next iteration
   end
 
   def test_all_iteration_methods_work_on_any_collection_not_just_arrays
@@ -99,5 +100,7 @@ class AboutIteration < EdgeCase::Koan
   #   # code to read 'file'
   #
   # When you get to the "AboutSandwichCode" koan, recheck your answer.
+  #
+  # HC: Because we can use a block, which makes for a more concise program
 
 end
